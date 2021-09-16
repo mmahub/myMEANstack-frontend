@@ -1,0 +1,107 @@
+
+<div class="col-sm-6">
+    <br>
+    <h1>Sign Up</h1>
+    <br>
+
+    <!-- success message -->
+    <div class="successMsg" *ngIf="showSuccessMessage">
+        <p align="center"> <b>Success:</b> Signed-up Successfully</p>
+    </div>
+
+    <form [formGroup]="signupForm" (ngSubmit)="getData(signupForm)">
+        <div class="mb-3">
+            <label for="exampleInputName" class="form-label">Full Name</label>
+            <input type="name" class="form-control" name="name" formControlName="name" placeholder="Enter Full Name"
+                aria-describedby="emailHelp">
+
+            <!-- error messages for name-control -->
+            <div align="center" class="nameErrorMsg" *ngIf=" submitted && s.name.errors">
+                <p *ngIf="s.name.errors.required">
+                    * Name is required.
+                </p>
+                <p *ngIf="s.name.errors.minlength">
+                    Name must be at least 2 characters long.
+                </p>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control" name="email" formControlName="email" placeholder="Email Address"
+                aria-describedby="emailHelp">
+
+
+            <!-- error messages for email-control -->
+            <div align="center" class="emailErrorMsg" *ngIf=" submitted && s.email.errors">
+                <p *ngIf="s.email.errors.required">
+                    * Email is required.
+                </p>
+            </div>
+            <!-- already exist error message -->
+            <!-- <br>     -->
+            <p align="center" class="emailAlreadyExisterrorMessage" *ngIf="emailAlreadyExisterrorMessage"> <b>
+                    Duplicate:</b> User with this Email already exist <br> </p>
+
+            <!-- invalid Email message -->
+            <p align="center" class="invalidEmailError" *ngIf="invalidEmailMessage"> <b>Error:</b> Invalid Email Address
+            </p>
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" name="password" formControlName="password"
+                placeholder="Password">
+
+            <!-- error messages for password-control -->
+            <div align="center" class="passwordErrorMsg" *ngIf=" submitted && s.password.errors">
+                <p *ngIf="s.password.errors.required">
+                    * Password is required.
+                </p>
+                <p *ngIf="s.password.errors.minlength">
+                    Password must be at least 4 characters long.
+                </p>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleInputPassword2" class="form-label">Confirm Password</label>
+            <input type="password" class="form-control" name="confirmpassword" formControlName="confirmpassword"
+                placeholder="Confirm Password">
+
+            <!-- error messages for password-control -->
+            <div align="center" class="confirmpasswordErrorMsg" *ngIf=" submitted && s.confirmpassword.errors">
+                <p *ngIf="s.confirmpassword.errors.required">
+                    * Confirm Password is required.
+                </p>
+                <p *ngIf="s.confirmpassword.errors.mustMatch">
+                    Password must match.
+                </p>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+
+
+
+<!-- invalid form message -->
+<!-- <div class="servererror" *ngIf="invalidFormErrorMessage">
+        <p align="center"> <b>Oops....</b> Invalid form submission</p> 
+    </div> -->
+
+<!-- [disabled]="!signupForm.valid" -->
+
+<!-- already exist error message -->
+<!-- <div class="emailAlreadyError" *ngIf="serverErrorMessages">
+            <p align="center"> <b>Error:</b> User with this Email already exist</p> 
+        </div> -->
+<!-- invalid Email message -->
+<!-- <div class="invalidEmailError" *ngIf="invalidEmailMessage">
+            <p align="center"> <b>Error:</b> Invalid Email Address</p> 
+        </div> -->
+
+
+<!--  -->

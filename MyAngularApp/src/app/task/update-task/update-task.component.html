@@ -1,0 +1,80 @@
+
+<div class="col-sm-6">
+    <br>
+    <h1>Update Task</h1>
+    <br>
+
+    <!-- success message -->
+    <div class="successMsg" *ngIf="showSuccessMessage">
+        <p align="center"> <b>Success:</b> Signed-up Successfully</p>
+    </div>
+
+    <!-- fail message -->
+    <div class="failMsg" *ngIf="showFailMessage">
+        <p align="center"> <b>Fail:</b> something went wrong</p>
+    </div>
+
+    <form [formGroup]="updateTaskForm" (ngSubmit)="updateData(updateTaskForm)">
+
+        <div class="mb-3">
+            <label for="exampleInputTask1" class="form-label">Task</label>
+            <input type="task" class="form-control" name="task" formControlName="task" 
+                placeholder="Task"
+                aria-describedby="taskHelp"
+                
+            >
+
+            <!-- error messages for task-control -->
+            <div align="center" class="taskErrorMsg" *ngIf=" submitted && ut.task.errors">
+                <p *ngIf="ut.task.errors.required">
+                    * Task is required.
+                </p>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleInputStatus" class="form-label">Current Status</label>
+            <select class="form-control" name="statusId" id="" formControlName="statusId">
+                <option [ngValue]="mcurrentTask.statusId_id" >{{ mcurrentTask.statusId }}</option>
+                <option *ngFor="let sta of statusTypes" [ngValue]="sta._id">
+                    {{ sta.statusTypes }}
+                </option>
+            </select>
+
+            <!-- error messages for status-control -->
+            <div align="center" class="statusErrorMsg" *ngIf=" submitted && ut.statusId.errors">
+                <p *ngIf="ut.statusId.errors.required">
+                    * Current Status is required.
+                </p>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleInputDeadline" class="form-label">Deadline (Date)</label>
+
+            <!-- type="date" will give browsers default datepicker but that is not a good practice hence using ngx-datepicker -->
+            <input type="text" class="form-control" name="deadline" bsDatepicker 
+                formControlName="deadline" 
+                placeholder="Deadline"
+                [bsConfig]="datePickerConfig"
+                placement="above"   
+            >
+
+            <!-- error messages for dedaline-control -->
+            <div align="center" class="deadlineErrorMsg" *ngIf=" submitted && ut.deadline.errors">
+                <p *ngIf="ut.deadline.errors.required">
+                    * Deadline is required.
+                </p>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+</div>
+
+
+
+
+
+
+<!-- *ngIf="class="border border-warning"" -->

@@ -1,0 +1,35 @@
+<br>
+<h2>Task-List</h2>
+<br>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col"> Task </th>
+      <th scope="col"> Current Status </th>
+      <th scope="col"> Deadline </th>
+      <th scope="col"> Created On </th>
+      <th colspan="2" style="text-align:center"> Actions </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of mtaskList">
+      <td> {{item.task}} </td>
+      <td> {{item.statusId}} </td>
+      <td> {{item.deadline_date}} </td>
+      <td> {{item.createdAt_date}} </td>
+
+      <!-- using Font Awesome icons: source: https://www.youtube.com/watch?v=NZOBfoRWczM&list=PL8p2I9GklV45JZerGMvw5JVxPSxCg8VPv&index=57 -->
+      <td align="right">
+        <i (click)="deleteTaskmethod(item._id)" class="fa fa-trash" style="font-size:20px;color:red;" data-toggle="tooltip"
+          data-placement="top" title="Delete"></i>
+      </td>
+
+      <!-- this will take us to update page on a click  -->
+      <td align="left">
+        <a routerLink="/updatetask/{{item._id}}"><i class="fa fa-edit" style="font-size:20px;color:blue;"
+            data-toggle="tooltip" data-placement="top" title="Edit"></i> </a>
+      </td> 
+    </tr>
+  </tbody>
+</table>

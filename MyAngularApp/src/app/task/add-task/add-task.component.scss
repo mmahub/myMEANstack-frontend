@@ -1,0 +1,14 @@
+.showFailMessage,
+.taskErrorMsg,
+.statusErrorMsg,
+.deadlineErrorMsg,
+.failMsg
+{
+    color: red;
+}
+
+.successMsg
+{
+    background-color: honeydew;
+    color: green;
+}

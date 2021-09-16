@@ -1,0 +1,14 @@
+.emailAlreadyExisterrorMessage, 
+.invalidEmailError, 
+.nameErrorMsg, 
+.emailErrorMsg, 
+.passwordErrorMsg,
+.confirmpasswordErrorMsg
+{
+    color: red;
+}
+
+.successMsg{
+    background-color: honeydew;
+    color: green;
+}

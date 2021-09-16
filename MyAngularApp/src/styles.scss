@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+#toast-container {
+    top: auto !important;
+    right: auto !important;
+    bottom: 50%;
+    left:42%;
+}
